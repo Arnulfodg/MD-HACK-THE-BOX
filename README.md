@@ -2,7 +2,6 @@
 
 > 📁 Este directorio contiene writeups documentados de máquinas **retiradas** de Hack The Box con nivel de dificultad *Easy*.  
 > Cada writeup está pensado como un recurso formativo para reforzar conceptos básicos de pentesting, CTFs y hacking ético.
-PERM-x
 ---
 
 ## 🧠 ¿Qué se busca en estas máquinas?
@@ -11,7 +10,7 @@ Las máquinas *Easy* son ideales para:
 - Familiarizarse con herramientas como `nmap`, `gobuster`, `linpeas`, `Burp Suite`.
 - Comprender vectores de ataque comunes (SMB, Shellshock, Webshells).
 - Practicar buenas prácticas de documentación en hacking ético.
-
+[Perm](PERM-x)
 ---
 
 ## ⚠️ Disclaimer
