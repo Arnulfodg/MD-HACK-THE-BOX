@@ -2,7 +2,7 @@
 
 > 📁 Este directorio contiene writeups documentados de máquinas **retiradas** de Hack The Box con nivel de dificultad *Easy*.  
 > Cada writeup está pensado como un recurso formativo para reforzar conceptos básicos de pentesting, CTFs y hacking ético.
-
+PERM-x
 ---
 
 ## 🧠 ¿Qué se busca en estas máquinas?
