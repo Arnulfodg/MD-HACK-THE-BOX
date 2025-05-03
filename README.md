@@ -18,9 +18,6 @@ Las máquinas *Easy* son ideales para:
 |----------------|--------|-------------------------------------|
 | [Perm-x](PERM-X)   | Linux | ✅ Completada |
 
-
-> 📎 Cada writeup está organizado con:  
-> 🛰️ Enumeración – 🚪 Explotación – 🧗 Escalada – 📚 Lecciones Aprendidas
 ---
 
 ## ⚠️ Disclaimer
