@@ -1,1 +1,1 @@
-El documento esta creado en cherrytree, para ver bien el documento le recomiendo descargar esta herramienta y asi poder desplegar una mejor vista del archivo.
+Bienvenidos. Ten en cuenta que esta información está creada con fines éticos y educativos, con la intención de promover el aprendizaje autodidacta. No me hago responsable del mal uso que le des a esta información, así que pórtate bien. ¡Chao, chao y hasta la próxima!
