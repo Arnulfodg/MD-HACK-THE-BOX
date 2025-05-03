@@ -10,7 +10,17 @@ Las máquinas *Easy* son ideales para:
 - Familiarizarse con herramientas como `nmap`, `gobuster`, `linpeas`, `Burp Suite`.
 - Comprender vectores de ataque comunes (SMB, Shellshock, Webshells).
 - Practicar buenas prácticas de documentación en hacking ético.
-[Perm](PERM-x)
+
+---
+## 📌 Índice de Máquinas
+
+| Máquina        | SO     | Resolución                         |
+|----------------|--------|-------------------------------------|
+| [Perm-x](PERM-X)   | Linux | ✅ Completada |
+
+
+> 📎 Cada writeup está organizado con:  
+> 🛰️ Enumeración – 🚪 Explotación – 🧗 Escalada – 📚 Lecciones Aprendidas
 ---
 
 ## ⚠️ Disclaimer
