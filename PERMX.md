@@ -151,7 +151,6 @@ sudo nmap -sS -sV -A --min-rate 5000 --open -vvv -Pn 10.10.11.23
 - creamos un root llamado root3 y les damos los mismos permisos de root ya con esto solo ejecutamos 
 > su root3 
 - y tendremos los privilegios de root 
-- realizamos un cd..
-- luego cd ..
+- realizamos un cd /
 - luego cd root
 - y encontramos la flag dentro de root.txt
