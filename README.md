@@ -16,7 +16,7 @@ Las máquinas *Easy* son ideales para:
 
 | Máquina        | SO     | Resolución                         |
 |----------------|--------|-------------------------------------|
-| [Perm-x](PERM-X)   | Linux | ✅ Completada |
+| [Perm-x](PERMX.md)   | Linux | ✅ Completada |
 
 ---
 
