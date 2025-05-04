@@ -13,10 +13,10 @@ sudo nmap -sS -sV -A --min-rate 5000 --open -vvv -Pn 10.10.11.23
 > encontramos la url (http://permx.htb/).
 
 # Copiamos la url en el archivo
-> cd nano /etc/hosts.
-> ip 10.10.11.23 http://permx.htb/.
-> guardamos con ctrl + s.
-> ctrl + x.
+> cd nano /etc/hosts
+> ip 10.10.11.23 http://permx.htb/
+> guardamos con ctrl + s
+> ctrl + x
 
 # Realizamos un escaneo con
 > whatweb -v -a 3 http://permx.htb/ 
