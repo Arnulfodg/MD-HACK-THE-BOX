@@ -22,7 +22,9 @@ sudo nmap -sS -sV -A --min-rate 5000 --open -vvv -Pn 10.10.11.23
 > whatweb -v -a 3 http://permx.htb/ 
 
 # Encontramos
-|-----------------------------|
+
+| Resultado |
+|-----------|
 | Summary   : Apache[2.4.52], |
 |  Bootstrap[5.0.0] |
 | Email[permx@htb.com] |
