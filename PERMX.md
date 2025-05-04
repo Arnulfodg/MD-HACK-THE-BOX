@@ -30,3 +30,9 @@ sudo nmap -sS -sV -A --min-rate 5000 --open -vvv -Pn 10.10.11.23
 | Email[permx@htb.com] |
 | HTTPServer[Ubuntu Linux][Apache/2.4.52 (Ubuntu)] |
 | JQuery[3.4.1] |
+
+# Ataque de directorio con Gobuster
+
+| ataque | estado |
+|--------|--------|
+| sudo gobuster vhost -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://permx.htb --append-domain | grep -v "Status: 302" | exitoso |
