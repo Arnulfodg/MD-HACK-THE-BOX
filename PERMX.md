@@ -154,3 +154,5 @@ sudo nmap -sS -sV -A --min-rate 5000 --open -vvv -Pn 10.10.11.23
 - realizamos un cd /
 - luego cd root
 - y encontramos la flag dentro de root.txt
+
+# Fin
