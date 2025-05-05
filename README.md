@@ -25,25 +25,6 @@ Cada máquina representa un reto resuelto paso a paso con las mejores prácticas
 
 ---
 
-## 🗂️ Índice de Máquinas
-
-### 🟢 Easy
-- [Blue](Easy/Blue/README.md)
-- [Lame](Easy/Lame/README.md)
-
-### 🟡 Medium
-- [Devel](Medium/Devel/README.md)
-
-### 🔴 Hard
-- [Active](Hard/Active/README.md)
-
-### ⚫ Insane
-- [Joker](Insane/Joker/README.md)
-
-> *El índice se irá actualizando conforme resuelva nuevas máquinas.*
-
----
-
 ## 🧠 Sobre mí
 
 Apasionado por el **Red Teaming**, el análisis técnico y la documentación elegante.  
