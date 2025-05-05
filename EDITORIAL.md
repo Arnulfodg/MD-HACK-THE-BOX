@@ -16,6 +16,7 @@
 - Colocamos la ip en el archivo Hosts de nuestra maquina atacante
   
 > sudo nano /etc/hosts
+
 > 10.10.11.20 editorial.htb
 
 
